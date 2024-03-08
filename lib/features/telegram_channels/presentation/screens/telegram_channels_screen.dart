@@ -72,12 +72,26 @@ class TelegramChannelsScreen extends StatelessWidget {
                   onTap: () {
                     Get.to(
                       () => TelegramChannelsMessagesScreen(
-                        channelMessages:
-                            controller.channelMessagesList[index],
+                        channelMessages: controller.channelMessagesList[index],
                         channelName: controller.channelsNames[index],
                       ),
                     );
                   },
+//                     subtitle: Column(
+//     crossAxisAlignment: CrossAxisAlignment.start,
+//     children: [
+//       Text(
+//         '${controller.channelMessagesList[index].link}',
+//         style: TextStyle(color: Colors.blue),
+//       ),
+//       Text(
+//         '${controller.channelMessagesList[index].messages.values.toList().last} Messages',
+//         maxLines: 2,
+//         style: const TextStyle(color: Colors.white),
+//       ),
+//     ],
+//   ),
+// ),
                   child: Card(
                     elevation: 0,
                     color: AppColors.kGreenColor,
@@ -87,15 +101,24 @@ class TelegramChannelsScreen extends StatelessWidget {
                         controller.channelsNames[index],
                         style: Styles.textStyle18Golden,
                       ),
-                      leading: const CircleAvatar(
+                      leading: CircleAvatar(
                         backgroundImage:
                             AssetImage('assets/svg/images/zaghrafa.png'),
+                        child: Text((index + 1).toString()),
                         backgroundColor: AppColors.kGreenColor,
                       ),
-                      subtitle: Text(
-                        '${controller.channelMessagesList[index].messages.values.toList().last} Messages',
-                        maxLines: 2,
-                        style: const TextStyle(color: Colors.white),
+                      subtitle: Column(
+                        children: [
+                          //       Text(
+                          //  '${controller.channelMessagesList[index].link}link',
+                          //        style: TextStyle(color: Colors.blue),
+                          //               ),
+                          Text(
+                            '${controller.channelMessagesList[index].messages.values.toList().last} Messages',
+                            maxLines: 2,
+                            style: const TextStyle(color: Colors.white),
+                          ),
+                        ],
                       ),
                       trailing: Container(
                         height: 20,
@@ -122,3 +145,4 @@ class TelegramChannelsScreen extends StatelessWidget {
     );
   }
 }
+
