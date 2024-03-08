@@ -17,34 +17,36 @@
 class TelegramChannels {
   Map<String, TelegramChannel> telegramChannels;
   TelegramChannels({required this.telegramChannels});
-  factory TelegramChannels.fromJson(dynamic json) {
-    if (json is List) {
-      // Handle list structure
-      Map<String, TelegramChannel> channels = {};
-      for (var item in json) {
-        // Create TelegramChannel from list item
-        channels[item['channelName']] = TelegramChannel.fromJson(item);
-      }
-      return TelegramChannels(telegramChannels: channels);
-    } else {
-      // Handle existing map structure
-      Map<String, TelegramChannel> channels = {};
-      json.forEach((key, value) {
-        channels[key] = TelegramChannel.fromJson(value);
-      });
-      return TelegramChannels(telegramChannels: channels);
-    }
+  factory TelegramChannels.fromJson(Map<String, dynamic> json) {
+    Map<String, TelegramChannel> channels = {};
+
+    json.forEach((key, value) {
+      channels[key] = TelegramChannel.fromJson(key, value);
+    });
+
+    return TelegramChannels(telegramChannels: channels);
   }
 }
-
 class TelegramChannel {
-  Map<String, String> messages;
-  TelegramChannel({required this.messages});
-  factory TelegramChannel.fromJson(Map<String, dynamic> json) {
-    return TelegramChannel(messages: json.cast<String, String>());
+  final String name;
+  final String link;
+  final Map<String, String> messages;
+
+  TelegramChannel({
+    required this.name,
+    required this.link,
+    required this.messages,
+  });
+
+  factory TelegramChannel.fromJson(String name, Map<String, dynamic> json) {
+      final String link = json['link'] ?? '';
+    return TelegramChannel(
+      name: name,
+      link: link,
+      messages: Map<String, String>.from(json),
+    );
   }
 }
-
 class IslamHousePhotos {
   Map<String, String> photos;
   IslamHousePhotos({required this.photos});
