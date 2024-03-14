@@ -77,21 +77,7 @@ class TelegramChannelsScreen extends StatelessWidget {
                       ),
                     );
                   },
-//                     subtitle: Column(
-//     crossAxisAlignment: CrossAxisAlignment.start,
-//     children: [
-//       Text(
-//         '${controller.channelMessagesList[index].link}',
-//         style: TextStyle(color: Colors.blue),
-//       ),
-//       Text(
-//         '${controller.channelMessagesList[index].messages.values.toList().last} Messages',
-//         maxLines: 2,
-//         style: const TextStyle(color: Colors.white),
-//       ),
-//     ],
-//   ),
-// ),
+
                   child: Card(
                     elevation: 0,
                     color: AppColors.kGreenColor,
