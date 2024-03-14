@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class TelegramChannelsMessagesScreen
+lass TelegramChannelsMessagesScreen
     extends GetView<TelegramChannelsController> {
   final TelegramChannel channelMessages;
   final String channelName;
@@ -136,5 +136,7 @@ class TelegramChannelsMessagesScreen
       ),
     );
   }
+}
+
 }
 
