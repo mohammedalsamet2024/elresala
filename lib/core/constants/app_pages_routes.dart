@@ -68,6 +68,8 @@ import '../../features/sites/presentation/screen/rasul_uallah/rasul_uallah_scree
 import '../../features/sites/presentation/screen/romance_screen.dart';
 import '../../features/sites/presentation/screen/terminolgy_screen.dart';
 import '../../features/sites/presentation/screen/woman_screen.dart';
+import 'package:elresala/features/sites/presentation/screen/knowingAllah/knowing_allah_main.dart';
+import 'package:elresala/features/telegram_channels/presentation/screens/telegram_channels_screen.dart';
 
 abstract class AppPagesRoutes {
   // Tabs Screens
@@ -94,6 +96,7 @@ abstract class AppPagesRoutes {
   static const String islamMessage = "/islam_message_screen";
   static const String islamReligion = "/islam_religion_screen";
   static const String islamLand = "/islam_land_screen";
+  static const String knowingallah ="/knowingallah_screen";
   static const String rasulullah = "/rasulullah_screen";
   static const String jesusIsMuslim = "/jesus_is_muslim_screen";
   static const String jesusInQuran = "/jesus_in_quran_screen";
@@ -177,6 +180,12 @@ abstract class AppPagesRoutes {
       name: islamLand,
       page: () => const IslamLandMainScreen(),
       binding: IslamLandBindings(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: knowingallah,
+      page: () => const KnowingAllahMainScreen(),
+      binding: KnowingAllahindings(),
       transition: Transition.cupertino,
     ),
     GetPage(
